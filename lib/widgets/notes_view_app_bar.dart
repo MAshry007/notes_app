@@ -9,7 +9,6 @@ class NotesViewAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(height: 170),
         CustomText(text: 'Notes', size: 32),
         Spacer(),
         CustomIcon(),
