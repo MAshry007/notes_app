@@ -7,6 +7,7 @@ class CustomNotesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      padding: EdgeInsets.zero,
       physics: BouncingScrollPhysics(),
       itemBuilder: (context, index) {
         return Padding(
