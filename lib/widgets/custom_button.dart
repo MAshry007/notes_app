@@ -3,9 +3,14 @@ import 'package:notes_app/widgets/constants.dart';
 import 'package:notes_app/widgets/custom_text.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, this.onTap});
+  const CustomButton({
+    super.key,
+    this.onTap,
+    this.isLoading = false,
+  });
 
   final void Function()? onTap;
+  final bool isLoading;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -18,12 +23,20 @@ class CustomButton extends StatelessWidget {
         height: 55,
         width: MediaQuery.of(context).size.width,
         child: Center(
-          child: CustomText(
-            text: 'Add',
-            color: Colors.black,
-            size: 20,
-            weight: FontWeight.bold,
-          ),
+          child: isLoading
+              ? SizedBox(
+                  height: 24,
+                  width: 24,
+                  child: CircularProgressIndicator(
+                    color: Colors.black,
+                  ),
+                )
+              : CustomText(
+                  text: 'Add',
+                  color: Colors.black,
+                  size: 20,
+                  weight: FontWeight.bold,
+                ),
         ),
       ),
     );
