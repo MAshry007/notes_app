@@ -7,11 +7,11 @@ import 'package:notes_app/views/notes_view.dart';
 import 'package:notes_app/widgets/constants.dart';
 
 void main() async {
-  runApp(NotesApp());
   Bloc.observer = SimpleBlocObserver();
   await Hive.initFlutter();
   Hive.registerAdapter(NoteModelAdapter());
   await Hive.openBox<NoteModel>(kNotesBox);
+  runApp(NotesApp());
 }
 
 class NotesApp extends StatelessWidget {
