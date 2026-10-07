@@ -15,8 +15,7 @@ class CustomNotesListView extends StatelessWidget {
         List<NoteModel> notesList =
             BlocProvider.of<CreateNoteCubit>(
               context,
-            ).notes ??
-            [];
+            ).notes!;
         return ListView.builder(
           itemCount: notesList.length,
           padding: EdgeInsets.zero,
@@ -26,7 +25,7 @@ class CustomNotesListView extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                 vertical: 4,
               ),
-              child: CustomNoteItem(),
+              child: CustomNoteItem(note: notesList[index]),
             );
           },
         );
