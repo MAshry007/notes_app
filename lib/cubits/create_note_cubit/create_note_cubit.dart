@@ -10,7 +10,7 @@ class CreateNoteCubit extends Cubit<CreateNoteStates> {
   }
 
   List<NoteModel>? notes;
-  fetchAllNotes() {
+  void fetchAllNotes() {
     var notesBox = Hive.box<NoteModel>(kNotesBox);
     notes = notesBox.values.toList();
     emit(CreateNoteSuccess());
