@@ -30,7 +30,7 @@ class CustomNoteItem extends StatelessWidget {
           left: 16,
         ),
         decoration: BoxDecoration(
-          color: Color(0xffFFCD7A),
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -39,7 +39,11 @@ class CustomNoteItem extends StatelessWidget {
             ListTile(
               title: CustomText(
                 text: note.title,
-                color: Colors.black,
+                color:
+                    Color(note.color).computeLuminance() >
+                        0.5
+                    ? Colors.black
+                    : Colors.white,
                 size: 28,
               ),
               subtitle: Padding(
@@ -49,7 +53,11 @@ class CustomNoteItem extends StatelessWidget {
                 ),
                 child: CustomText(
                   text: note.subTitle,
-                  color: Color(0xff946426),
+                  color:
+                      Color(note.color).computeLuminance() >
+                          0.5
+                      ? Colors.black
+                      : Colors.white,
                   size: 18,
                 ),
               ),
@@ -62,7 +70,11 @@ class CustomNoteItem extends StatelessWidget {
                 },
                 icon: FaIcon(
                   FontAwesomeIcons.trash,
-                  color: Colors.black,
+                  color:
+                      Color(note.color).computeLuminance() >
+                          0.5
+                      ? Colors.black
+                      : Colors.white,
                   size: 24,
                 ),
               ),
@@ -71,7 +83,11 @@ class CustomNoteItem extends StatelessWidget {
               padding: const EdgeInsets.only(right: 20),
               child: CustomText(
                 text: note.date,
-                color: Color(0xff946426),
+                color:
+                    Color(note.color).computeLuminance() >
+                        0.5
+                    ? Colors.black
+                    : Colors.white,
               ),
             ),
           ],
